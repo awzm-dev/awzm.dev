@@ -1,0 +1,23 @@
+{
+  "name": "awzm.dev",
+  "version": "1.0.0",
+  "description": "A blog by awesome devs for awesome devs",
+  "main": "blog/.vuepress/dist/index.html",
+  "author": "JT Houk <jt1992@gmail.com> (https://jt.houk.space/)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev blog",
+    "build": "vuepress build blog"
+  },
+  "dependencies": {
+    "vuepress": "^1.7.1"
+  },
+  "devDependencies": {
+    "@vuepress/theme-blog": "^2.3.2"
+  },
+  "keywords": [
+    "blog",
+    "vuepress",
+    "javascript"
+  ]
+}
