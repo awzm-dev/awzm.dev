@@ -7,13 +7,16 @@
   "license": "MIT",
   "scripts": {
     "dev": "vuepress dev blog",
-    "build": "vuepress build blog"
+    "build": "vuepress build blog",
+    "fetch:posts": "node src/fetch-to-markdown.js"
   },
   "dependencies": {
+    "fetch-to-markdown": "^1.1.8",
     "vuepress": "^1.7.1"
   },
   "devDependencies": {
-    "@vuepress/theme-blog": "^2.3.2"
+    "@vuepress/theme-blog": "^2.3.2",
+    "vuepress-plugin-seo": "^0.1.4"
   },
   "repository": {
     "type": "git",
