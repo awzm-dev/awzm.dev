@@ -15,6 +15,10 @@
   "devDependencies": {
     "@vuepress/theme-blog": "^2.3.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awzm-dev/awzm.dev.git"
+  },
   "keywords": [
     "blog",
     "vuepress",
