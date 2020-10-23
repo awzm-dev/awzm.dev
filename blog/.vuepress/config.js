@@ -28,7 +28,7 @@ module.exports = {
   },
   theme: '@vuepress/blog',
   themeConfig: {
-    repo: 'awzm',
+    repo: 'awzm.dev',
     domain: process.env.DOMAIN,
     hostname: process.env.HOST,
     smoothScroll: true,
@@ -43,7 +43,7 @@ module.exports = {
       contact: [
         {
           type: 'github',
-          link: 'https://github.com/awzm/awzm.dev',
+          link: 'https://github.com/awzm-dev/awzm.dev',
         },
         {
           type: 'twitter',
