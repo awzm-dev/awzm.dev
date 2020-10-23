@@ -25,5 +25,10 @@
     "blog",
     "vuepress",
     "javascript"
-  ]
+  ],
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.7.1",
+    "add": "^2.0.6",
+    "yarn": "^1.22.10"
+  }
 }

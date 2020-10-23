@@ -7,9 +7,11 @@ module.exports = {
     ['link', { rel: 'icon', href: '/awzm.gif' }]
   ],
   serviceWorker: true,
-  ga: process.env.GA_ID,
   evergreen: true, // disables ES5 transpilation and polyfills for IE
   plugins: {
+    '@vuepress/google-analytics': {
+      ga: process.env.GA_ID,
+    },
     seo: {
       siteTitle: (_, $site) => $site.title,
       title: $page => $page.title,
@@ -71,24 +73,21 @@ module.exports = {
     },
     feed: {
       canonical_base: process.env.HOST,
-      // is_feed_page: $page => {
-      //   if (!$page.frontmatter.layout === 'Post') {
-      //     return false
-      //   }
-      //   $page.frontmatter.feed = {
-      //     title: $page.frontmatter.title,
-      //     description: $page.frontmatter.summary,
-      //     image: $page.frontmatter.cover,
-      //     author:[{
-      //       name: $page.frontmatter.author
-      //     }],
-      //   }
-      //   return true
-      // }
+      is_feed_page: $page => {
+        if ($page.frontmatter.layout !== 'Post') {
+          return false
+        }
+        $page.frontmatter.feed = {
+          image: $page.frontmatter.cover,
+          author:[{
+            name: $page.frontmatter.author
+          }],
+        }
+        return true
+      }
     }
   },
   env: {
-    // CMS_API: process.env.CMS_API,
-    // DISQUS_API_KEY: process.env.DISQUS_API_KEY
-  },
+    CMS_API: process.env.CMS_API
+  }
 }
