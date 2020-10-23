@@ -1,11 +1,13 @@
+require('dotenv-defaults').config()
+
 module.exports = {
   title: 'AWZM.dev',
   description: 'A blog by awesome devs for awesome devs',
   head: [
-    // ['link', { rel: 'icon', href: '/logo.png' }]
+    ['link', { rel: 'icon', href: '/awzm.gif' }]
   ],
   serviceWorker: true,
-  // ga: process.env.GA_ID,
+  ga: process.env.GA_ID,
   evergreen: true, // disables ES5 transpilation and polyfills for IE
   plugins: {
     seo: {
@@ -25,46 +27,65 @@ module.exports = {
   theme: '@vuepress/blog',
   themeConfig: {
     repo: 'awzm',
-    domain: 'awzm.netlify.com',
-    hostname: 'https://awzm.netlify.com',
+    domain: process.env.DOMAIN,
+    hostname: process.env.HOST,
     smoothScroll: true,
     pwa: {
       serviceWorker: true,
       updatePopup: true
     },
     sitemap: {
-      hostname: 'https://awzm.netlify.com'
+      hostname: process.env.HOST
     },
-    // footer: {
-      // contact: [
-      //   {
-      //     type: 'github',
-      //     link: 'https://github.com/vuejs/vuepress',
-      //   },
-      //   {
-      //     type: 'twitter',
-      //     link: 'https://github.com/vuejs/vuepress',
-      //   },
-      // ],
-    //   copyright: [
-    //     {
-    //       text: 'Privacy Policy',
-    //       link: 'https://policies.google.com/privacy?hl=en-US',
-    //     },
-    //     {
-    //       text: 'MIT Licensed | Copyright © 2018-present Vue.js',
-    //       link: '',
-    //     },
-    //   ],
-    // },
-    // newsletter: 'mailchimp url'
-    // comment: {
-    //   service: 'vssue',
-    //   owner: 'You',
-    //   repo: 'Your repo', 
-    //   clientId: 'Your clientId',
-    //   clientSecret: 'Your clientSecret',
-    // }
+    footer: {
+      contact: [
+        {
+          type: 'github',
+          link: 'https://github.com/awzm/awzm.dev',
+        },
+        {
+          type: 'twitter',
+          link: 'https://twitter.com/HoukasaurusRex',
+        }
+      ],
+      copyright: [
+        {
+          text: 'Privacy Policy',
+          link: 'https://policies.google.com/privacy?hl=en-US',
+        },
+        {
+          text: 'MIT Licensed | Copyright © 2020-present AWZM.DEV',
+          link: '',
+        }
+      ]
+    },
+    newsletter: {
+      endpoint: process.env.MAILCHIMP_URL
+    },
+    comment: {
+      service: 'vssue',
+      owner: 'awzm-dev',
+      repo: 'awzm.dev', 
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    },
+    feed: {
+      canonical_base: process.env.HOST,
+      // is_feed_page: $page => {
+      //   if (!$page.frontmatter.layout === 'Post') {
+      //     return false
+      //   }
+      //   $page.frontmatter.feed = {
+      //     title: $page.frontmatter.title,
+      //     description: $page.frontmatter.summary,
+      //     image: $page.frontmatter.cover,
+      //     author:[{
+      //       name: $page.frontmatter.author
+      //     }],
+      //   }
+      //   return true
+      // }
+    }
   },
   env: {
     // CMS_API: process.env.CMS_API,
